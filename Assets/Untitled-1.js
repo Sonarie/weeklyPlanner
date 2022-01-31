@@ -105,20 +105,19 @@ if (currentTime > dayTime9) {
   seventeenEl.classList.add("present");
 }
 
-//when save button is clicked, save contents from box to local storage
-//when #save9 icon is clicked, save contents from #userInput9 to local storage
+function setValue(event) {
+  var btnId = event.target.getAttribute("data-btnId"); // "10"
+  var userInputSelector = "userInput" + btnId; // "userInput" + "10"
+  var userInputEl = document.getElementById(userInputSelector);
+  var userInputValue = userInputEl.textContent;
+  localStorage.setItem(userInputSelector, userInputValue);
 
-// document.getElementById("save9").addEventListener("click", setValue);
+  var getValue = localStorage.getItem(userInputValue);
+  userInputSelector = getValue;
+}
 
-// function setValue() {
-//   console.log("clicked");
-//   localStorage.setItem("nine", nineEl.textContent);
-//   console.log(nineEl.textContent);
-// }
-
-// var test = localStorage.getItem("nine");
-// console.log("worked!" + test);
-
-// nineEl.textContent = test;
-
-//getItem takes from local storage and keeps displying in element
+var saveBtns = document.getElementsByClassName("saveBtn");
+console.log(saveBtns);
+for (let i = 0; i < saveBtns.length; i++) {
+  saveBtns[i].addEventListener("click", setValue);
+}
