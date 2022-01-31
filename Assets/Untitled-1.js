@@ -112,8 +112,8 @@ function setValue(event) {
   var userInputValue = userInputEl.textContent;
   localStorage.setItem(userInputSelector, userInputValue);
 
-  var getValue = localStorage.getItem(userInputValue);
-  userInputSelector = getValue;
+  //var getValue = localStorage.getItem(userInputValue);
+  //userInputSelector = getValue;
 }
 
 var saveBtns = document.getElementsByClassName("saveBtn");
